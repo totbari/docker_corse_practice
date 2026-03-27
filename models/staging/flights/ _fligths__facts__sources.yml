@@ -42,57 +42,66 @@ sources:
         description: Посадочные талоны
         columns:
           - name: ticket_no
-            description:
+            description: Номер билета
           - name: flight_id
-            description:
+            description: Идентификатор рейса
           - name: boarding_no
-            description:
+            description: Номер посадочного талона
           - name: seat_no
-            description:
+            description: Номер места
       - name: flights  #проверку на свежесть данных в таблице flights по колонке actual_departure
         description: Рейсы
         columns:
           - name: flight_id
-        description:
+            description: Идентификатор рейса
           - name: flight_no
-        description:
+            description: нет данных
           - name: scheduled_departure
-        description:
+            description: Время вылета по расписанию
           - name: scheduled_arrival
-        description:
+            description: Время прилёта по расписания
           - name: departure_airport
-        description:
+            description: нет данных
           - name: arrival_airport
-        description:
+            description: Фактическое время прилёта
           - name: status
-        description:
+            description: нет данных
           - name: aircraft_code
-        description:
+            description: нет данных
           - name: actual_departure
-        description:
+            description: Фактическое время вылета
           - name: actual_arrival
-        description:
+            description: нет данных
+        freshness:
+          warn_after:
+           count: 6
+           period: hour
+          error_after:
+            count: 1
+            period: day
+          filter: "actual_departure <= CURRENT_DATE"
+        loaded_at_field: actual_departure::timestamp 
       - name: ticket_flights
         description: Связующие рейсы 
         columns:
           - name: ticket_no
-        description:
+            description: нет данных
           - name: flight_id
-        description:
+            description: нет данных
           - name: fare_conditions
-        description:
+            description: нет данных
           - name: amount
-        description:
+            description: нет данных
       - name: tickets
         description: билеты
         columns:
           - name: ticket_no
-        description:
+            description: Номер билета
           - name: book_ref
-        description:
+            description: Номер бронирования
           - name: passenger_id
-        description:
+            description: Идентификатор пассажира
           - name: passenger_name
-        description:
+            description: Имя пассажира
           - name: contact_data
-        description:
+            description: нет данных 
