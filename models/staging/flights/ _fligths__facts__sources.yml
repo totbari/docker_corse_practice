@@ -1,0 +1,98 @@
+sources:
+  - name: demo_src
+    database: dwh_fligth
+    schema: demo_src
+    description: Данные из БД авиаперелеты
+    tables:
+      - name: aircrafts
+        description:  Модель самолёта 
+        columns:
+          - name: aircraft_code
+            description: Код модели самолета
+            tests:
+              - not_null
+              - unique
+          - name: model
+            description: Название модели самолета 
+          - name: range
+            description: Растояние полета самолета 
+      - name: airports
+        description: Маршруты аэропортов
+        columns:
+          - name: airport_code
+            description: код аэропортов
+          - name: airport_name
+            description: Название
+          - name: city
+            description: Город
+          - name: coordinates
+            description: Коорденаты
+          - name: timezone
+            description: Временная зона
+      - name: seats
+        description: Места в самолете
+        columns:
+          - name: aircraft_code
+            description: Код модели самалета
+          - name: seat_no
+            description: Номер места
+          - name: fare_conditions
+            description: Класс места 
+      - name: boarding_passes
+        description: Посадочные талоны
+        columns:
+          - name: ticket_no
+            description:
+          - name: flight_id
+            description:
+          - name: boarding_no
+            description:
+          - name: seat_no
+            description:
+      - name: flights  #проверку на свежесть данных в таблице flights по колонке actual_departure
+        description: Рейсы
+        columns:
+          - name: flight_id
+        description:
+          - name: flight_no
+        description:
+          - name: scheduled_departure
+        description:
+          - name: scheduled_arrival
+        description:
+          - name: departure_airport
+        description:
+          - name: arrival_airport
+        description:
+          - name: status
+        description:
+          - name: aircraft_code
+        description:
+          - name: actual_departure
+        description:
+          - name: actual_arrival
+        description:
+      - name: ticket_flights
+        description: Связующие рейсы 
+        columns:
+          - name: ticket_no
+        description:
+          - name: flight_id
+        description:
+          - name: fare_conditions
+        description:
+          - name: amount
+        description:
+      - name: tickets
+        description: билеты
+        columns:
+          - name: ticket_no
+        description:
+          - name: book_ref
+        description:
+          - name: passenger_id
+        description:
+          - name: passenger_name
+        description:
+          - name: contact_data
+        description:
