@@ -4,7 +4,7 @@
         )
 }}
 select
-    "ticket_no",
+  "ticket_no",
   "flight_id",
   "fare_conditions",
   "amount"

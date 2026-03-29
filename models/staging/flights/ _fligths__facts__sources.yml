@@ -105,3 +105,13 @@ sources:
             description: Имя пассажира
           - name: contact_data
             description: нет данных 
+      - name: bookings
+        description: бронирование
+        columns:
+          - name: book_ref
+            description: Нет данных
+          - name: book_date
+            description: Нет данных
+          - name: total_amount
+            description: Нет данных
+
