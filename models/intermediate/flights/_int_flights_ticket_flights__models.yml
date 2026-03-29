@@ -1,0 +1,20 @@
+models:
+  - name: fct_ticket_flights
+    description: Связующие рейсы 
+    docs:
+      show: true
+      node_color: green
+    meta:
+      owner: "tot@gmail.com"
+      
+    columns:
+      - name: ticket_no
+      - name: flight_id
+        constraints:
+          - type: check
+            expression: "flight_id > 0"
+      - name: fare_conditions
+      - name: amount
+        constraints:
+          - type: check
+            expression: "amount > 0"
