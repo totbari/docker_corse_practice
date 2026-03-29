@@ -4,17 +4,30 @@ models:
     docs:
       show: true
       node_color: green
+    config:
+      contract: {enforced: true}
     meta:
       owner: "tot@gmail.com"
       
     columns:
       - name: ticket_no
+        data_type: bpchar(13)
+        constraints:
+          - type: not_null
       - name: flight_id
-        constraints:
-          - type: check
-            expression: "flight_id > 0"
+        data_type: int4
       - name: fare_conditions
+        data_type: varchar(10)
       - name: amount
+        data_type: numeric(10, 2)
         constraints:
-          - type: check
-            expression: "amount > 0"
+         - type: check
+           expression: "amount > 0"
+      - name: boarding_pass_exists
+        data_type: text
+      - name: boarding_no
+        data_type: int4
+      - name: seat_no
+        data_type: varchar(4)
+      - name: load_date
+        data_type: date
